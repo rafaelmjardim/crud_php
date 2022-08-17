@@ -1,57 +1,44 @@
 <?php
     require "db/conexao.php";
+    include "header.php";
     session_start();
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
-    header('location:login.php');
+    if((!isset($_SESSION['login']) == true) && !isset($_SESSION['senha']) == true){
+        header('location: login.php');
     }
-
     $logado = $_SESSION['login'];
-    echo "Logado: Bem vindo: $logado <a href='logout.php'>Sair</a>";
-    
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Home</title>
-</head>
-<body>
-    <?php
-        include "header.php";
-    ?>
-
-    <div class="container">
-    <?php
-  $sql = mysqli_query($conn, "SELECT * FROM user");
-  if(mysqli_num_rows($sql)){
-      echo "
-          <table>
-              <tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Senha</th>
-                  <th>Ação</th>
-              </tr>
-      ";
-      foreach($sql as $value){
-          echo "
-              <tr>
-                  <th>".$value['id']."</th>
-                  <th>".$value['nome']."</th>
-                  <th>".$value['senha']."</th>
-                  <th><a href='delete.php/?delete=".$value['id']."'>Deletar</a> | <a href='edit.php'>Editar</a></th>
-              </tr>
-          ";
-      }
-      echo "</table>";
-  }else{
-    echo "Nenhum usuario cadastrado!";
-  }
+    echo  "<div class='logado'>Bem vindo: $logado <a href='logout.php'>Sair</a></div>";
 
 ?>
-    </div>
-</body>
-</html>
+        <div class="container-medium">
+            <h1>To-do List</h1>
+            <?php
+                $select_sql = mysqli_query($conn, "SELECT * FROM list");
+                if(mysqli_num_rows($select_sql) > 0 ){
+                    echo "
+                        <table>
+                            <tr class='tr-top'>
+                                <th class='th-top'>ID</th>
+                                <th class='th-top'>Tarefa</th>
+                                <th class='th-top'>Descrição</th>
+                                <th class='th-top'>Ação</th>
+                            </tr>
+                    ";
+                    foreach($select_sql as $value){
+                        echo "
+                            <tr>
+                                <th>".$value['id']."</th>
+                                <th>".$value['nome']."</th>
+                                <th>".$value['descricao']."</th>
+                                <th><a href='delete.php/?delete=".$value['id']."'><i class='fa-solid fa-trash-can'></i></a>  <a href='update.php'><i class='fa-solid fa-pen-to-square'></i></a></th>
+                            </tr>
+                        ";
+                    }
+                    echo "</table>";
+                }else{
+                    echo "Nenhum dado registrado";
+                }
+            ?>
+        </div>
+<?php
+    include "footer.php";
+?>

@@ -1,59 +1,110 @@
 * {
+    margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(47, 47, 47);
+    color: #fff;
     text-decoration: none;
 }
 body {
-    background-color: rgb(52, 113, 182);
+    background-color: #434343;
+    
 }
-table {
-    width: 600px;
-}
-th {
-    border: 1.8px solid rgb(35, 35, 35);
-}
-.btn{
-    width: 90px;
-    padding: 10px;
-    margin-right: 10px;
-    background-color: rgb(193, 193, 193);
-    border-radius: 8px;
-    font-weight: bold;
-}
-.header{
+.container, .container-medium {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     height: 100vh;
 }
-.nav-btn {
-    position: absolute;
-    top: 20px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.container-medium {
+    height: 90vh;
+}
+h1{
     text-align: center;
+}
+.logado {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+}
+.logado a {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: rgb(72, 72, 72);
+}
+h2 {
+    font-size: 34px;
+    margin: 10px;
 }
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
 }
-input, .btn-input {
-    margin: 10px;
-    border-radius: 12px;
+input {
+    color: black;
+    padding: 16px;
+    margin: 5px;
     border: none;
-    padding: 10px;
+    border-radius: 10px;
+    width: 200px;
 }
-.btn-input {
-    background-color: rgb(53, 164, 215);
+.btn {
+    width: 230px; 
+    border: none;
+    border-radius: 10px;
+    color: #434343;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: rgb(76, 156, 190);
+}
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(60, 90, 146);
+    line-height: 50px;
+}
+nav a {
+    
+    background-color: #fff;
+    color: rgb(72, 72, 72);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px;
+}
+h1 {
+    margin: 20px;
+}
+table {
+    margin: 20px;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+}
+.th-top {
+    border-bottom: 1px solid rgb(183, 183, 183);
+}
+tr, th{
+    color: rgb(141, 141, 141);
+    padding: 12px;
+    font-weight: 100;
+    
+}
+/* ICONE DELETE */
+.fa-trash-can {
+    color: rgb(232, 86, 81);
+}
+/* ICONE EDIT */
+.fa-pen-to-square{
+    color: rgb(84, 156, 224);
+    margin-left: 10px;
 }

@@ -1,9 +1,7 @@
 <?php
-    include "db/conexao.php";
+    require "db/conexao.php";
     session_start();
-    if(isset($_SESSION['login'])){
-        session_destroy();
-        header("Location: login.php");
-        exit();
-}
+    unset($_SESSION['login']);
+    session_destroy();
+    header('location: login.php');
 ?>
