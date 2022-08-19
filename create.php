@@ -1,5 +1,5 @@
 <?php
-    
+    require "db/conexao.php";
     include "header.php";
     
     function cadastro(){
@@ -27,7 +27,6 @@
             ?>
             <input type="text" name="nome" placeholder="Infome a tarefa">
             <input type="text" name="descricao" placeholder="Infome uma descrição">
-            <!-- <button type="submit" name="enviar">Enviar</button> -->
             <input class="btn" type="submit" name="enviar" value="Enviar">
         </form>
     </div>

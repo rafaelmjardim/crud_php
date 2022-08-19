@@ -1,13 +1,6 @@
 <?php
     require "db/conexao.php";
     include "header.php";
-    session_start();
-    if((!isset($_SESSION['login']) == true) && !isset($_SESSION['senha']) == true){
-        header('location: login.php');
-    }
-    $logado = $_SESSION['login'];
-    echo  "<div class='logado'>Bem vindo: $logado <a href='logout.php'>Sair</a></div>";
-
 ?>
         <div class="container-medium">
             <h1>To-do List</h1>

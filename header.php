@@ -1,5 +1,5 @@
 <?php
-    require "db/conexao.php";
+    include "function_login.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,14 @@
 </head>
 <body>
     <nav>
-        <a href="index.php">Tarefas</a>
-        <a href="http://localhost:3000/create.php">Cadastrar</a>
+        <div>
+            <a href="index.php">Tarefas</a>
+            <a href="create.php">Cadastrar</a>
+        </div>
+        <div>
+            <?php
+             echo login();
+            ?>
+        </div>
     </nav>
+
